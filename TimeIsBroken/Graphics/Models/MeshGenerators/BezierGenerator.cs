@@ -2,9 +2,8 @@
 using OpenTK;
 using System.Collections.Generic;
 using OpenTK.Graphics.OpenGL;
-using System.Threading.Tasks;
 
-namespace ESTD.Graphics.Models.MeshGenerators
+namespace TimeIsBroken.Graphics.Models.MeshGenerators
 {
 	public class BezierGenerator : IMeshGenerator<TexturedVertices>
 	{
@@ -74,7 +73,6 @@ namespace ESTD.Graphics.Models.MeshGenerators
 
 			float res = (float)resolution;
 			int r = 0;
-			float t;
 
 			Vector2 p0, p1, p2, p3;
 

@@ -2,9 +2,9 @@
 using OpenTK.Graphics.OpenGL;
 using System.Runtime.InteropServices;
 using OpenTK;
-using ESTD.Utilities;
+using TimeIsBroken.Utilities;
 
-namespace ESTD.Graphics.Models
+namespace TimeIsBroken.Graphics.Models
 {
 	public class Mesh<T> where T : struct
 	{

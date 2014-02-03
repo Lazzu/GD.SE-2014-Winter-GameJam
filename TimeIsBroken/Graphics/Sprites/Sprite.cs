@@ -1,10 +1,10 @@
 ﻿using System;
-using ESTD.Graphics.Textures;
+using TimeIsBroken.Graphics.Textures;
 using OpenTK;
 using System.Collections.Generic;
 using OpenTK.Graphics.OpenGL;
 
-namespace ESTD.Graphics.Sprites
+namespace TimeIsBroken.Graphics.Sprites
 {
 	public class Sprite
 	{
@@ -23,9 +23,29 @@ namespace ESTD.Graphics.Sprites
 			set;
 		}
 
+		public int LoopStartFrame {
+			get;
+			set;
+		}
+
 		public float Scale {
 			get;
 			set;
+		}
+
+		public SpriteBlendingMode BlendingMode {
+			get;
+			set;
+		}
+
+		public double TotalAnimationTime {
+			get {
+				double total = 0;
+				foreach (var item in Frames) {
+					total += item.Delay;
+				}
+				return total;
+			}
 		}
 
 		double frameTime = 0;
@@ -34,7 +54,9 @@ namespace ESTD.Graphics.Sprites
 		{
 			Frames = new List<SpriteFrame> ();
 			CurrentFrame = 0;
+			LoopStartFrame = 0;
 			Scale = 1;
+			BlendingMode = SpriteBlendingMode.Normal;
 		}
 
 		public Sprite (ICollection<SpriteFrame> frames) : this()
@@ -64,7 +86,7 @@ namespace ESTD.Graphics.Sprites
 			// Check if we have reached the last frame and need to start over from the beginning
 			if(CurrentFrame == Frames.Count)
 			{
-				CurrentFrame = 0;
+				CurrentFrame = LoopStartFrame;
 			}
 		}
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using OpenTK;
 
-namespace ESTD.Graphics.Sprites
+namespace TimeIsBroken.Graphics.Sprites
 {
 	public class SpriteFrame
 	{

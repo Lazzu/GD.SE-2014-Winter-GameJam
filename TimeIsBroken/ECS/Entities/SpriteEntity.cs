@@ -1,9 +1,9 @@
 ﻿using System;
-using ESTD.ECS.Components;
+using TimeIsBroken.ECS.Components;
 using OpenTK;
-using ESTD.Graphics.Sprites;
+using TimeIsBroken.Graphics.Sprites;
 
-namespace ESTD.ECS.Entities
+namespace TimeIsBroken.ECS.Entities
 {
 	public class SpriteEntity : Entity
 	{

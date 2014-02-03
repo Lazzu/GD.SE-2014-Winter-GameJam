@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ESTD.Graphics.Models.MeshGenerators
+namespace TimeIsBroken.Graphics.Models.MeshGenerators
 {
 	public interface IMeshGenerator<T> where T : struct
 	{

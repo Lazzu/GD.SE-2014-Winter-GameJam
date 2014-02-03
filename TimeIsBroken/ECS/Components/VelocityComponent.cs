@@ -1,7 +1,7 @@
 ﻿using System;
 using OpenTK;
 
-namespace ESTD.ECS.Components
+namespace TimeIsBroken.ECS.Components
 {
 	public class VelocityComponent : IComponent
 	{
@@ -18,6 +18,13 @@ namespace ESTD.ECS.Components
 			}
 		}
 
+
+		public IComponent Clone ()
+		{
+			return new VelocityComponent (){
+				Velocity = Velocity
+			};
+		}
 		#endregion
 
 

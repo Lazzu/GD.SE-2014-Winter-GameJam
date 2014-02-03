@@ -1,8 +1,7 @@
 ﻿using System;
 using OpenTK;
-using ESTD.GameLevels;
 
-namespace ESTD.ECS.Components
+namespace TimeIsBroken.ECS.Components
 {
 	public class PathFollowerComponent : IComponent
 	{
@@ -23,7 +22,7 @@ namespace ESTD.ECS.Components
 
 		public Vector3 TargetPoint {
 			get {
-				return GameLevelManager.Current.Path [TargetIndex] + offset;
+				return Vector3.Zero;//GameLevelManager.Current.Path [TargetIndex] + offset;
 			}
 		}
 
@@ -46,6 +45,14 @@ namespace ESTD.ECS.Components
 			}
 		}
 
+
+		public IComponent Clone ()
+		{
+			return new PathFollowerComponent () {
+				TargetIndex = targetIndex,
+				PathID = PathID
+			};
+		}
 		#endregion
 	}
 }

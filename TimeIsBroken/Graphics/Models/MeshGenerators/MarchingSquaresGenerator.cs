@@ -1,7 +1,7 @@
 ﻿using System;
 using OpenTK;
 
-namespace ESTD.Graphics.Models.MeshGenerators
+namespace TimeIsBroken.Graphics.Models.MeshGenerators
 {
 	public class MarchingSquaresGenerator
 	{

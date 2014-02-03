@@ -1,11 +1,11 @@
 ﻿using System;
-using ESTD.Graphics.Textures;
+using TimeIsBroken.Graphics.Textures;
 using System.Drawing;
 using System.Drawing.Text;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing.Imaging;
 
-namespace ESTD.Graphics.Text
+namespace TimeIsBroken.Graphics.Text
 {
 	public class TextWriter
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
-using ESTD.Graphics.Sprites;
+using TimeIsBroken.Graphics.Sprites;
 
-namespace ESTD.ECS.Components
+namespace TimeIsBroken.ECS.Components
 {
 	public class SpriteComponent : IComponent
 	{
@@ -22,6 +22,13 @@ namespace ESTD.ECS.Components
 			}
 		}
 
+
+		public IComponent Clone ()
+		{
+			return new SpriteComponent (){
+				Sprite = Sprite
+			};
+		}
 		#endregion
 	}
 }

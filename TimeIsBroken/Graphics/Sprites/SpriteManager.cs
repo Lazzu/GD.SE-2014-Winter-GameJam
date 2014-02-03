@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using OpenTK;
 
-namespace ESTD.Graphics.Sprites
+namespace TimeIsBroken.Graphics.Sprites
 {
 	public class SpriteManager
 	{

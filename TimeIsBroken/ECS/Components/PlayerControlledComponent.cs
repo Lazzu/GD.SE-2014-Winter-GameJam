@@ -2,11 +2,23 @@
 
 namespace TimeIsBroken.ECS.Components
 {
-	public class PlayerControlledComponent
+	public class PlayerControlledComponent : IComponent
 	{
-		public PlayerControlledComponent ()
-		{
+		#region IComponent implementation
+
+		public string ComponentType {
+			get {
+				return "PlayerControlled";
+			}
 		}
+
+
+		public IComponent Clone ()
+		{
+			return new PlayerControlledComponent ();
+		}
+		#endregion
+
 	}
 }
 

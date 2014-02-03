@@ -4,6 +4,8 @@ namespace TimeIsBroken.Graphics.Sprites
 {
 	public enum SpriteBlendingMode
 	{
+		Normal,
+		Additive
 	}
 }
 

@@ -1,9 +1,9 @@
 ﻿using System;
 using OpenTK;
-using ESTD.ECS.Components;
-using ESTD.ECS.Entities;
+using TimeIsBroken.ECS.Components;
+using TimeIsBroken.ECS.Entities;
 
-namespace ESTD.ECS.Systems
+namespace TimeIsBroken.ECS.Systems
 {
 	public class MotionSystem : ISystem
 	{
@@ -18,6 +18,11 @@ namespace ESTD.ECS.Systems
 			return (e.Components.ContainsKey ("Position") && e.Components.ContainsKey ("Velocity"));
 		}
 
+		public void Initialize (Entity e)
+		{
+
+		}
+
 		public void Update (Entity e, double deltaTime)
 		{
 			// Get current position and velocity
@@ -29,25 +34,6 @@ namespace ESTD.ECS.Systems
 
 			// Update position
 			((PositionComponent)e.Components ["Position"]).Position = pos;
-
-			// Check if entity has a rotation modifier
-			if(e.Components.ContainsKey("RotationModifier"))
-			{
-				// Get modifier
-				float mod = ((RotationModifierComponent)e.Components ["RotationModifier"]).RotationModifier;
-
-				// Check if modifier is not zero (no modification
-				if (mod != 0) {
-					// Get current rotation
-					float rot = ((RotationComponent)e.Components ["Rotation"]).Rotation;
-
-					// Add modifier in the rotation
-					rot += mod * (float)deltaTime;
-
-					// Update rotation
-					((RotationComponent)e.Components ["Rotation"]).Rotation = rot;
-				}
-			}
 		}
 
 		public void Render (Entity e, double deltaTime)

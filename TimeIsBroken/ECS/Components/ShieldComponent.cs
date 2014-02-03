@@ -2,11 +2,29 @@
 
 namespace TimeIsBroken.ECS.Components
 {
-	public class ShieldComponent
+	public class ShieldComponent : IComponent
 	{
-		public ShieldComponent ()
-		{
+		public float Shield {
+			get;
+			set;
 		}
+
+		#region IComponent implementation
+
+		public string ComponentType {
+			get {
+				return "Shield";
+			}
+		}
+
+
+		public IComponent Clone ()
+		{
+			return new ShieldComponent (){
+				Shield = Shield
+			};
+		}
+		#endregion
 	}
 }
 

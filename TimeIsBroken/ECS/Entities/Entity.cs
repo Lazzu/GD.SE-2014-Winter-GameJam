@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using ESTD.ECS.Components;
+using TimeIsBroken.ECS.Components;
 
-namespace ESTD.ECS.Entities
+namespace TimeIsBroken.ECS.Entities
 {
 	public class Entity
 	{
+		public Guid ID {
+			get;
+			private set;
+		}
+
 		public Dictionary<string, IComponent> Components {
 			get;
 			protected set;
@@ -20,6 +25,7 @@ namespace ESTD.ECS.Entities
 		{
 			Components = new Dictionary<string, IComponent> ();
 			Enabled = true;
+			ID = Guid.NewGuid ();
 		}
 
 		public void AddComponent(IComponent component)
@@ -29,6 +35,26 @@ namespace ESTD.ECS.Entities
 				return;
 
 			Components.Add (component.ComponentType, component);
+		}
+
+		public override int GetHashCode ()
+		{
+			return ID.GetHashCode ();
+		}
+
+		public Entity Clone()
+		{
+			Dictionary<string, IComponent> comp = new Dictionary<string, IComponent> ();
+
+			foreach (var component in Components) {
+				comp.Add (component.Key, component.Value.Clone ());
+			}
+
+			return new Entity () {
+				ID = ID,
+				Components = comp,
+				Enabled = Enabled
+			};
 		}
 	}
 }

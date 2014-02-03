@@ -2,11 +2,31 @@
 
 namespace TimeIsBroken.ECS.Components
 {
-	public class LifeSpanComponent
+	public class LifeSpanComponent : IComponent
 	{
-		public LifeSpanComponent ()
-		{
+		public double Life {
+			get;
+			set;
 		}
+
+		#region IComponent implementation
+
+		public string ComponentType {
+			get {
+				return "LifeSpan";
+			}
+		}
+
+
+		public IComponent Clone ()
+		{
+			return new LifeSpanComponent (){
+				Life = Life
+			};
+		}
+		#endregion
+
+
 	}
 }
 

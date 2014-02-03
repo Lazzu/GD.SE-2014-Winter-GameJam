@@ -3,7 +3,7 @@ using System.Drawing.Text;
 using System.Drawing;
 using System.IO;
 
-namespace ESTD.Graphics.Text
+namespace TimeIsBroken.Graphics.Text
 {
 	public static class FontManager
 	{

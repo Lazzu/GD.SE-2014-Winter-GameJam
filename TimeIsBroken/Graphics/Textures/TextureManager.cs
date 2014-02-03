@@ -6,7 +6,7 @@ using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing.Imaging;
 
-namespace ESTD.Graphics.Textures
+namespace TimeIsBroken.Graphics.Textures
 {
 	public class TextureManager
 	{

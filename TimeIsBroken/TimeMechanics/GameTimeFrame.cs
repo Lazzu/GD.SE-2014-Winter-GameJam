@@ -1,11 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
+using TimeIsBroken.ECS;
 
 namespace TimeIsBroken.TimeMechanics
 {
-	public class GameFrame
+	public class GameTimeFrame
 	{
-		public GameFrame ()
+		List<EntityFrameData> Entities = new List<EntityFrameData>();
+
+		public GameTimeFrame ()
 		{
+			foreach (var Entity in ECSEngine.AllEntities) 
+			{
+				var ef = new EntityFrameData () {
+					Entity = Entity
+				};
+
+				foreach (var component in Entity.Components) {
+					ef.Components.Add (component.Key, component.Value.Clone ());
+				}
+
+				Entities.Add(ef);
+			}
 		}
 	}
 }

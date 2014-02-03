@@ -1,7 +1,7 @@
 ﻿using System;
-using ESTD.ECS.Entities;
+using TimeIsBroken.ECS.Entities;
 
-namespace ESTD.ECS.Systems
+namespace TimeIsBroken.ECS.Systems
 {
 	public interface ISystem
 	{
@@ -9,7 +9,7 @@ namespace ESTD.ECS.Systems
 		bool Fits(Entity e);
 		void Update(Entity e, double deltaTime);
 		void Render (Entity e, double deltaTime);
-
+		void Initialize(Entity e);
 	}
 }
 

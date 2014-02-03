@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A7FD2CB-EEC7-421D-BB4A-E947ABF36C4C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TimeIsBroken</RootNamespace>
+    <AssemblyName>TimeIsBroken</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="ECS\ECSEngine.cs" />
+    <Compile Include="ECS\Components\DirectionComponent.cs" />
+    <Compile Include="ECS\Components\IComponent.cs" />
+    <Compile Include="ECS\Components\PathFollowerComponent.cs" />
+    <Compile Include="ECS\Components\PositionComponent.cs" />
+    <Compile Include="ECS\Components\RotationComponent.cs" />
+    <Compile Include="ECS\Components\SpeedComponent.cs" />
+    <Compile Include="ECS\Components\SpriteComponent.cs" />
+    <Compile Include="ECS\Components\VelocityComponent.cs" />
+    <Compile Include="ECS\Entities\Entity.cs" />
+    <Compile Include="ECS\Entities\SpriteEntity.cs" />
+    <Compile Include="ECS\Systems\ISystem.cs" />
+    <Compile Include="ECS\Systems\MotionSystem.cs" />
+    <Compile Include="ECS\Systems\PathFollowerSystem.cs" />
+    <Compile Include="ECS\Systems\SpriteSystem.cs" />
+    <Compile Include="Graphics\Camera.cs" />
+    <Compile Include="Graphics\Models\ColoredVertices.cs" />
+    <Compile Include="Graphics\Models\Mesh.cs" />
+    <Compile Include="Graphics\Models\TexturedVertices.cs" />
+    <Compile Include="Graphics\Models\MeshGenerators\BezierGenerator.cs" />
+    <Compile Include="Graphics\Models\MeshGenerators\IMeshGenerator.cs" />
+    <Compile Include="Graphics\Models\MeshGenerators\MarchingSquaresGenerator.cs" />
+    <Compile Include="Graphics\Shaders\Shader.cs" />
+    <Compile Include="Graphics\Shaders\ShaderProgram.cs" />
+    <Compile Include="Graphics\Sprites\Sprite.cs" />
+    <Compile Include="Graphics\Sprites\SpriteFrame.cs" />
+    <Compile Include="Graphics\Sprites\SpriteManager.cs" />
+    <Compile Include="Graphics\Sprites\SpriteRenderer.cs" />
+    <Compile Include="Graphics\Sprites\SpriteRenderingData.cs" />
+    <Compile Include="Graphics\Text\FontManager.cs" />
+    <Compile Include="Graphics\Text\TextWriter.cs" />
+    <Compile Include="Graphics\Textures\Texture.cs" />
+    <Compile Include="Graphics\Textures\TextureManager.cs" />
+    <Compile Include="Utilities\ErrorChecking.cs" />
+    <Compile Include="ECS\Components\BoundingBoxComponent.cs" />
+    <Compile Include="GameTimer.cs" />
+    <Compile Include="ECS\Entities\PlayerShip.cs" />
+    <Compile Include="ECS\Entities\ProjectileEntity.cs" />
+    <Compile Include="ECS\Components\DamageComponent.cs" />
+    <Compile Include="ECS\Components\HealthComponent.cs" />
+    <Compile Include="ECS\Components\ShieldComponent.cs" />
+    <Compile Include="ECS\Systems\PlayerControlsSystem.cs" />
+    <Compile Include="Input\KeyboardListener.cs" />
+    <Compile Include="Input\InputSettings.cs" />
+    <Compile Include="ECS\Components\PlayerControlledComponent.cs" />
+    <Compile Include="ECS\Components\LifeSpanComponent.cs" />
+    <Compile Include="ECS\Systems\LifeSpanSystem.cs" />
+    <Compile Include="Content\SpriteData.cs" />
+    <Compile Include="ECS\Entities\Explosion.cs" />
+    <Compile Include="ECS\Systems\ProjectileSystem.cs" />
+    <Compile Include="ECS\Components\ProjectileComponent.cs" />
+    <Compile Include="Graphics\Sprites\SpriteDrawLayer.cs" />
+    <Compile Include="Graphics\Sprites\SpriteBlendingMode.cs" />
+    <Compile Include="ECS\Entities\AsteroidEntity.cs" />
+    <Compile Include="ECS\Components\ScriptComponent.cs" />
+    <Compile Include="Scripts\IScript.cs" />
+    <Compile Include="ECS\Systems\ScriptSystem.cs" />
+    <Compile Include="Scripts\Enemies\AsteroidEnemy.cs" />
+    <Compile Include="Scripts\PlayerShipScript.cs" />
+    <Compile Include="Scripts\ScriptedEntity.cs" />
+    <Compile Include="ECS\Entities\MultiExplosionEntity.cs" />
+    <Compile Include="Scripts\Effects\MultiExplosionScript.cs" />
+    <Compile Include="Audio\SoundManager.cs" />
+    <Compile Include="Audio\SoundEffect.cs" />
+    <Compile Include="TimeMechanics\FrameRecorder.cs" />
+    <Compile Include="TimeMechanics\GameTimeFrame.cs" />
+    <Compile Include="TimeMechanics\EntityFrameData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK">
+      <HintPath>..\..\..\..\..\ESTD\ESTD\bin\Debug\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ECS\" />
+    <Folder Include="ECS\Components\" />
+    <Folder Include="ECS\Entities\" />
+    <Folder Include="ECS\Systems\" />
+    <Folder Include="Graphics\" />
+    <Folder Include="Utilities\" />
+    <Folder Include="Content\" />
+    <Folder Include="Content\Textures\" />
+    <Folder Include="Content\Shaders\" />
+    <Folder Include="Input\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="Scripts\Enemies\" />
+    <Folder Include="Scripts\Effects\" />
+    <Folder Include="Audio\" />
+    <Folder Include="TimeMechanics\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\Textures\explosions.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Textures\starship.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Shaders\Sprite.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Shaders\Sprite.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Textures\flare_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Textures\asteroid_strip64.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

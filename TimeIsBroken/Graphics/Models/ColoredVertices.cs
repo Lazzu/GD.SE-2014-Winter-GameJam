@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using OpenTK;
 
-namespace ESTD.Graphics.Models
+namespace TimeIsBroken.Graphics.Models
 {
 	[StructLayout(LayoutKind.Sequential)]
 	public struct ColoredVertices

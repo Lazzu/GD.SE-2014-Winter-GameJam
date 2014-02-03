@@ -1,7 +1,7 @@
 ﻿using System;
 using OpenTK;
 
-namespace ESTD.ECS.Components
+namespace TimeIsBroken.ECS.Components
 {
 	public class DirectionComponent : IComponent
 	{
@@ -22,6 +22,13 @@ namespace ESTD.ECS.Components
 			}
 		}
 
+
+		public IComponent Clone ()
+		{
+			return new DirectionComponent () {
+				Direction = Direction
+			};
+		}
 		#endregion
 	}
 }

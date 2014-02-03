@@ -2,7 +2,7 @@
 using OpenTK.Graphics.OpenGL;
 using System.Diagnostics;
 
-namespace ESTD.Utilities
+namespace TimeIsBroken.Utilities
 {
 	public static class ErrorChecking
 	{

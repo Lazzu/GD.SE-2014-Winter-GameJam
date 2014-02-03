@@ -1,7 +1,7 @@
 ﻿using System;
 using OpenTK;
 
-namespace ESTD.ECS.Components
+namespace TimeIsBroken.ECS.Components
 {
 	public class PositionComponent : IComponent
 	{
@@ -20,6 +20,13 @@ namespace ESTD.ECS.Components
 			get {
 				return "Position";
 			}
+		}
+
+		public IComponent Clone ()
+		{
+			return new PositionComponent(){
+				Position = Position
+			};
 		}
 
 		#endregion

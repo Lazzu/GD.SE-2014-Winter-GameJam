@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ESTD.ECS.Components
+namespace TimeIsBroken.ECS.Components
 {
 	public class SpeedComponent : IComponent
 	{
@@ -21,6 +21,13 @@ namespace ESTD.ECS.Components
 			}
 		}
 
+
+		public IComponent Clone ()
+		{
+			return new SpeedComponent (){
+				Speed = Speed
+			};
+		}
 		#endregion
 	}
 }

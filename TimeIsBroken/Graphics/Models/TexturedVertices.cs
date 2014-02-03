@@ -2,7 +2,7 @@
 using OpenTK;
 using System.Runtime.InteropServices;
 
-namespace ESTD.Graphics.Models
+namespace TimeIsBroken.Graphics.Models
 {
 	[StructLayout(LayoutKind.Sequential)]
 	public struct TexturedVertices

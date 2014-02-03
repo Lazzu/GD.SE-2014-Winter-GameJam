@@ -1,9 +1,8 @@
 ﻿using System;
 using OpenTK;
-using ESTD.ECS.Components;
-using ESTD.GameLevels;
+using TimeIsBroken.ECS.Components;
 
-namespace ESTD.ECS.Systems
+namespace TimeIsBroken.ECS.Systems
 {
 	public class PathFollowerSystem : ISystem
 	{
@@ -26,7 +25,7 @@ namespace ESTD.ECS.Systems
 
 		#region ISystem implementation
 
-		public bool Fits (ESTD.ECS.Entities.Entity e)
+		public bool Fits (TimeIsBroken.ECS.Entities.Entity e)
 		{
 			return (
 			    e.Components.ContainsKey ("PathFollower")
@@ -36,7 +35,12 @@ namespace ESTD.ECS.Systems
 			);
 		}
 
-		public void Update (ESTD.ECS.Entities.Entity e, double deltaTime)
+		public void Initialize (TimeIsBroken.ECS.Entities.Entity e)
+		{
+
+		}
+
+		public void Update (TimeIsBroken.ECS.Entities.Entity e, double deltaTime)
 		{
 			PathFollowerComponent pfc = (PathFollowerComponent)e.Components ["PathFollower"];
 
@@ -50,7 +54,11 @@ namespace ESTD.ECS.Systems
 
 			if(distance < threshold)
 			{
-				pfc.TargetIndex = GameLevelManager.Current.GetNextPointOnPath (pfc.TargetIndex);
+				//pfc.TargetIndex = GameLevelManager.Current.GetNextPointOnPath (pfc.TargetIndex);
+
+				// TODO: Get next point on path
+				pfc.TargetIndex = -1;
+
 				if (pfc.TargetIndex < 0) {
 					ECSEngine.RemoveEntity (e);
 					return;
@@ -68,7 +76,7 @@ namespace ESTD.ECS.Systems
 			((PositionComponent)e.Components ["Position"]).Position = position;
 		}
 
-		public void Render (ESTD.ECS.Entities.Entity e, double deltaTime)
+		public void Render (TimeIsBroken.ECS.Entities.Entity e, double deltaTime)
 		{
 			// Nothing to do here
 		}

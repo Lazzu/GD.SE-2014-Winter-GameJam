@@ -1,11 +1,11 @@
 using System;
 using OpenTK;
 using System.Collections.Generic;
-using ESTD.Graphics.Textures;
+using TimeIsBroken.Graphics.Textures;
 using OpenTK.Graphics.OpenGL;
 using System.IO;
 
-namespace ESTD.Graphics.Shaders
+namespace TimeIsBroken.Graphics.Shaders
 {
 	public class Shader
 	{

@@ -1,9 +1,10 @@
 ﻿using System;
-using ESTD.ECS.Entities;
-using ESTD.ECS.Components;
+using TimeIsBroken.ECS.Entities;
+using TimeIsBroken.ECS.Components;
 using OpenTK;
+using TimeIsBroken.Graphics.Sprites;
 
-namespace ESTD.ECS.Systems
+namespace TimeIsBroken.ECS.Systems
 {
 	public class SpriteSystem : ISystem
 	{
@@ -14,16 +15,22 @@ namespace ESTD.ECS.Systems
 		public bool Fits(Entity e)
 		{
 			// Requires Sprite and Position
-			return (e.Components.ContainsKey ("Sprite") && (e.Components.ContainsKey ("Position") || e.Components.ContainsKey ("Position2") || e.Components.ContainsKey ("Position3") ));
+			return (e.Components.ContainsKey ("Sprite") && e.Components.ContainsKey ("Position"));
+		}
+
+		public void Initialize (Entity e)
+		{
+
 		}
 
 		public void Update (Entity e, double deltaTime)
 		{
-			// Do nothing here
+			Sprite sprite = ((SpriteComponent)e.Components ["Sprite"]).Sprite;
+			sprite.Update (deltaTime);
 		}
 		public void Render (Entity e, double deltaTime)
 		{
-			SpriteComponent sprite = (SpriteComponent)e.Components ["Sprite"];
+			Sprite sprite = ((SpriteComponent)e.Components ["Sprite"]).Sprite;
 
 			Vector3 position = ((PositionComponent)e.Components ["Position"]).Position;
 
@@ -34,7 +41,7 @@ namespace ESTD.ECS.Systems
 				rotation = ((RotationComponent)e.Components ["Rotation"]).Rotation;
 			}
 
-			sprite.Sprite.Render (position, rotation);
+ 			sprite.Render (position, rotation);
 		}
 	}
 }

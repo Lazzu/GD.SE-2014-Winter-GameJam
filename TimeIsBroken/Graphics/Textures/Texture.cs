@@ -2,7 +2,7 @@
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 
-namespace ESTD.Graphics.Textures
+namespace TimeIsBroken.Graphics.Textures
 {
 	public class Texture
 	{

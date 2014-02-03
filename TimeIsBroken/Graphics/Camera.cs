@@ -2,7 +2,7 @@
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 
-namespace ESTD.Graphics
+namespace TimeIsBroken.Graphics
 {
 	public class Camera
 	{
